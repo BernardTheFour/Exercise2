@@ -14,13 +14,19 @@ public class Transaction
     }
 
     // send point write to history
-    public void SendPoint(String userSenderID, String userReceiverID, int point, int day, int month, int year)
+    public void SendPoint(Users userSender, Users userReceiver, int point, int day, int month, int year)
     {
+        userSender.reducePoint(point);
+        userReceiver.addPoint(point);
+
         HistoryData history = new HistoryData();
         history.date = String.valueOf(day) + "/" + String.valueOf(month) + "/" + String.valueOf(year);
-        history.userSender = userSenderID;
-        history.userReceiver = userReceiverID;
+        history.userSender = userSender.getName();
+        history.userReceiver = userReceiver.getName();
         history.point = point;
+
+        // add history
+        transactionHistoryList.add(history);
     }
 
     // print the history
@@ -28,7 +34,7 @@ public class Transaction
     {
         for (HistoryData data : transactionHistoryList)
         {
-            System.out.println("Date: " + data.date);
+            System.out.println("\nDate: " + data.date);
             System.out.println(data.userSender + " -> " + data.userReceiver + " : " + data.point + "P");
         }
     }
