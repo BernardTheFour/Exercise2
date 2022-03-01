@@ -9,7 +9,7 @@ public class Main {
 
     public static void main(String[] args) {
 	// write your code here
-        List<Users> users = createUsers();
+        Set<Users> users = createUsers();
         showUsers(users);
 
         Transaction transaction = new Transaction();
@@ -28,7 +28,7 @@ public class Main {
         showUsers(users);
     }
 
-    public static List<Users> createUsers(){
+    public static Set<Users> createUsers(){
         Users arel = new Users();
         arel.setId(1);
         arel.setName("Arel");
@@ -43,7 +43,7 @@ public class Main {
         yanglain.setId(3);
         yanglain.setName("dia");
         yanglain.setPoint(1000);
-        List<Users> usersList = new ArrayList<>();
+        Set<Users> usersList = new HashSet<>();
         //add
         usersList.add(arel);
         usersList.add(bernard);
@@ -52,7 +52,7 @@ public class Main {
         return usersList;
     }
 
-    public static void showUsers(List<Users> users){
+    public static void showUsers(Set<Users> users){
         for (Users user : users){
             System.out.println("Id : " + user.getId());
             System.out.println("Name : " + user.getName());
