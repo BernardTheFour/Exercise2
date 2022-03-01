@@ -18,6 +18,9 @@ public class Users {
     public void setPoint(Integer point) {
         this.point = point;
     }
+
+    public void addPoint(Integer value) {this.point = this.point + value;};
+    public void reducePoint(Integer value) {this.point = this.point - value;}
     //getter
 
     public String getName() {
