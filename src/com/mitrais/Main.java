@@ -19,7 +19,7 @@ public class Main {
         transaction.SendPoint(users.get(1), users.get(0), 750, 21, 3,2020);
         transaction.SendPoint(users.get(2), users.get(0), 400, 11, 6,2020);
         transaction.SendPoint(users.get(0), users.get(1), 650, 5, 7,2020);
-        transaction.SendPoint(users.get(0), users.get(2), 1000, 8, 11,2020);
+        transaction.SendPoint(users.get(0), users.get(2), 5000, 8, 11,2020);
 
         System.out.println("\n----- Show History-----");
         transaction.PrintHistory();

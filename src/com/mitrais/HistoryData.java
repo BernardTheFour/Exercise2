@@ -6,4 +6,5 @@ public class HistoryData
     public String userSender;
     public String userReceiver;
     public int point;
+    public String status;
 }
