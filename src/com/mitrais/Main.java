@@ -21,10 +21,8 @@ public class Main {
         transaction.SendPoint(users.get(0), users.get(1), 650, 5, 7,2020);
         transaction.SendPoint(users.get(0), users.get(2), 5000, 8, 11,2020);
 
-        System.out.println("\n----- Show History-----");
         transaction.PrintHistory();
 
-        System.out.println("\n----- Show User-----");
         showUsers(users);
     }
 
@@ -52,7 +50,9 @@ public class Main {
         return usersList;
     }
 
-    public static void showUsers(Set<Users> users){
+    public static void showUsers(List<Users> users){
+        System.out.println("\n----- Show History-----");
+
         for (Users user : users){
             System.out.println("Id : " + user.getId());
             System.out.println("Name : " + user.getName());
