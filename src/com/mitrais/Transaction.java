@@ -16,6 +16,11 @@ public class Transaction
     // send point write to history
     public void SendPoint(Users userSender, Users userReceiver, int point, int day, int month, int year)
     {
+        if (userSender.getPoint() - point <= 0){
+            System.out.println("Transaction fail: " + userSender.getName() + " doesn't have enough point");
+            return;
+        }
+
         userSender.reducePoint(point);
         userReceiver.addPoint(point);
 
