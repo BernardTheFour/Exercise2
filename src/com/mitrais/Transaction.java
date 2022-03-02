@@ -16,15 +16,19 @@ public class Transaction
     // send point write to history
     public void SendPoint(Users userSender, Users userReceiver, int point, int day, int month, int year)
     {
-        if (userSender.getPoint() - point <= 0){
-            System.out.println("Transaction fail: " + userSender.getName() + " doesn't have enough point");
-            return;
+        HistoryData history = new HistoryData();
+
+        if (userSender.getPoint() > point)
+        {
+            userSender.reducePoint(point);
+            userReceiver.addPoint(point);
+            history.status = "Transaction success";
+        }
+        else {
+            history.status = "Transaction fail (doesn't have enough point)";
         }
 
-        userSender.reducePoint(point);
-        userReceiver.addPoint(point);
 
-        HistoryData history = new HistoryData();
         history.date = String.valueOf(day) + "/" + String.valueOf(month) + "/" + String.valueOf(year);
         history.userSender = userSender.getName();
         history.userReceiver = userReceiver.getName();
@@ -41,6 +45,7 @@ public class Transaction
         {
             System.out.println("\nDate: " + data.date);
             System.out.println(data.userSender + " -> " + data.userReceiver + " : " + data.point + "P");
+            System.out.println("Status: " + data.status);
         }
     }
 }
