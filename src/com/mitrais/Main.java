@@ -51,7 +51,7 @@ public class Main {
     }
 
     public static void showUsers(List<Users> users){
-        System.out.println("\n----- Show History-----");
+        System.out.println("\n----- Show User-----");
 
         for (Users user : users){
             System.out.println("Id : " + user.getId());

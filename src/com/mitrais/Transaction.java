@@ -41,7 +41,7 @@ public class Transaction
     // print the history
     public void PrintHistory()
     {
-        System.out.println("\n----- Show User-----");
+        System.out.println("\n----- Show History-----");
         for (HistoryData data : transactionHistoryList)
         {
             System.out.println("\nDate: " + data.date);
